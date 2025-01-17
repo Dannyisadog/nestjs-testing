@@ -14,4 +14,9 @@ export class AppController {
   getAbout(): string {
     return 'about route';
   }
+
+  @Get('/dashboard')
+  getDashboard(): string {
+    return 'dashboard route';
+  }
 }
