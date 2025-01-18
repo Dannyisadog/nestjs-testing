@@ -1,9 +1,14 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { UserService } from './user.service';
+import { User } from '@prisma/client';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly userService: UserService,
+  ) {}
 
   @Get()
   getHello(): string {
@@ -18,5 +23,10 @@ export class AppController {
   @Get('/dashboard')
   getDashboard(): string {
     return 'dashboard route';
+  }
+
+  @Get('/user')
+  async getUser(): Promise<User[]> {
+    return await this.userService.getUsers();
   }
 }
