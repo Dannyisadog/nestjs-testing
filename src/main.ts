@@ -9,7 +9,6 @@ async function bootstrap() {
     .setTitle('Marche API Documentation')
     .setDescription('The Marche API documentation')
     .setVersion('1.0')
-    .addTag('cats')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
 
